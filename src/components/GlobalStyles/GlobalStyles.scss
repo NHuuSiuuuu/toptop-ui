@@ -1,15 +1,24 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-:root { // Dùng để khai báo biến
-    --primary: #fe2c55;
+:root {
+  // Dùng để khai báo biến
+  --primary: #fe2c55;
+
+  // Default layout
+  --default-layout-header-height:60px;
+  --default-layout-width-content:1150px;
 }
-* { // reset hoặc quy định thuộc tính chung
-    box-sizing: border-box;
+* {
+  // reset hoặc quy định thuộc tính chung
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html { // Dùng để định nghĩa base style cho toàn bộ app
-    font-size: 65%;
+html {
+  // Dùng để định nghĩa base style cho toàn bộ app
+  font-size: 65%;
 }
 
 body {

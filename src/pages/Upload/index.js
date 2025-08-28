@@ -1,10 +1,13 @@
-import Header from "~/components/Layout/DefaulLayout/Header";
+// import Header from "~/components/Layout/DefaulLayout/Header";
+// Trang upload có cả Header
+
 function Upload() {
-  return <div>
-    <Header></Header>
-    <div className='content'> 
-      <h2>Up Load</h2>
+  return (
+    <div>
+      <div className="content">
+        <h2>Up Load</h2>
+      </div>
     </div>
-  </div>
+  );
 }
 export default Upload;
