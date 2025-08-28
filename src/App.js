@@ -1,22 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-import Button from '~/components/Button/index';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Fragment } from 'react';  // Nó là thẻ chứa, không sinh thật ra DOM
+import { publicRouter } from '~/routes';
+import { DefaulLayout } from '~/components/Layout';
+
 function App() {
   return (
-    <div className="App">
-      <Button />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {publicRouter.map((route, index) => {
+            const Layout = route.layout === null ? Fragment  :  DefaulLayout; // Nếu không có layout xác định thì mặc định nó sẽ là DefaultLayout
+            const Page = route.component;
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={
+                  <Layout>
+                    <Page /> {/*Layout tức là DefaultLayout ôm Page - Lúc này page là chilren và truyêgn vào prop của DefaultLayout*/}
+                  </Layout>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
-  
