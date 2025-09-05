@@ -8,6 +8,9 @@
   // Default layout
   --default-layout-header-height:60px;
   --default-layout-width-content:1150px;
+  --black: #000;
+  --white: #ffff;
+  --text-color: #333;
 }
 * {
   // reset hoặc quy định thuộc tính chung
@@ -18,7 +21,7 @@
 
 html {
   // Dùng để định nghĩa base style cho toàn bộ app
-  font-size: 65%;
+  font-size: 65%; // font-size của html là 16px. 65% = (65/16) *100 = 10.4px | Theo HTML 1rem=10.4px
 }
 
 body {
@@ -26,4 +29,13 @@ body {
   font-size: 1.6rem;
   list-style: 1.5;
   text-rendering: optimizeLegibility; //Hiển thị chữ mượt hơn, nhất là với font chữ đẹp như Google Fonts.
+}
+
+button, input, [tabindex] { // bất cứ thẻ nào có tabindex nữa
+  outline: none;
+  border: none;
+}
+
+a[href] {
+  color: var(--text-color);
 }
