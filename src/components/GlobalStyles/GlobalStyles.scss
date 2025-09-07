@@ -1,13 +1,14 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
   // Dùng để khai báo biến
   --primary: #fe2c55;
 
   // Default layout
-  --default-layout-header-height:60px;
-  --default-layout-width-content:1150px;
+  --default-layout-header-height: 60px;
+  --default-layout-width-content: 1150px;
+  --default-layout-horizontal-spacer: 24px; // khoảng cách sang 2 bên của chiều ngang
+
   --black: #000;
   --white: #ffff;
   --text-color: #333;
@@ -25,17 +26,64 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBMPlexSans', sans-serif;
   font-size: 1.6rem;
   list-style: 1.5;
   text-rendering: optimizeLegibility; //Hiển thị chữ mượt hơn, nhất là với font chữ đẹp như Google Fonts.
 }
 
-button, input, [tabindex] { // bất cứ thẻ nào có tabindex nữa
+button,
+input,
+[tabindex] {
+  // bất cứ thẻ nào có tabindex nữa
   outline: none;
   border: none;
 }
 
 a[href] {
   color: var(--text-color);
+}
+
+body {
+  .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    background-color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-content {
+    padding: 8px 9px;
+  }
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8px;
+  }
+}
+
+// Fonts
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('/assets/fonts/TikTokFont-Regular.woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: SofiaPro;
+  src: url('/assets/fonts/TikTokFont-Bold.woff2');
+  font-weight: 700;
 }
