@@ -8,7 +8,7 @@ import { HeaderOnly } from '~/components/Layout';
 const publicRouter = [ // Dùng cho những router không đăng nhập mà vẫn xem được
     {path: '/', component: Home},
     {path: '/following', component: Following},
-    {path: '/profile', component: Profile},
+    {path: '/@:nickname', component: Profile},
     {path: '/upload', component: Upload, layout: HeaderOnly}, // Layout chỉ có Header thôi
     {path: '/search', component: Search, layout: null},
 ]

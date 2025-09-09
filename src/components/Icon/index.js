@@ -3,8 +3,8 @@ export const UploadIcon = ({ width='3.2rem', height='3.2rem', className}) => (
     className={className}
     width={width}
     height={height}
-    viewBox="0 0 32 32"
-    fill="currentColor"
+    viewBox="0 0 32 32" //Tọa độ: viewBox="minX minY width height" - nghĩa là vùng vẽ có tọa độ từ (0,0) đến (32,32)
+    fill="currentColor" //currentColor là một giá trị đặc biệt: nó lấy màu chữ (CSS color) từ phần tử cha.
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -54,7 +54,7 @@ export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) =
         width={width}
         height={height}
         viewBox="0 0 48 48"
-        fill="rgba(22, 24, 35, 0.34)"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
