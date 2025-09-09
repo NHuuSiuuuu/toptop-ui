@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {}
 
-function Menu({children, items = []}, onChange = defaultFn) {
+function Menu({children, items = []}, hideOnClick = false, onChange = defaultFn) {
 
     const [history, setHistory] = useState([{ data: items}]) // {data: items} - tức là danh sách menu gốc cấp 1
     const current = history[history.length-1] // Lấy phần tử cuối của mảng history
@@ -36,6 +36,7 @@ function Menu({children, items = []}, onChange = defaultFn) {
     // visible
       delay={[0,700]}
       interactive
+      hideOnClick={hideOnClick}
       offset={[12,10]} // chiều ngang - chiều cao
       placement="bottom-end"
       render={(attrs) => (

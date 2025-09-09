@@ -37,8 +37,6 @@ function Search() {
       setSearchResult(result);
 
       setLoading(false);
-      
-
     };
 
     fetchApi();
@@ -55,6 +53,18 @@ function Search() {
   const handleHideResult = () => {
     setShowResult(false);
   };
+
+  // Hàm
+  const handleChange = (e) => {
+    const searchValue = e.target.value
+    if (!searchValue.startsWith(' ') ) { // Nếu k bắt đầu bằng khoảng trắng thì mới setSearchValue
+      setSearchValue(searchValue);
+      // return
+    }
+
+  };
+
+
 
   return (
     <HeadlessTippy
@@ -79,7 +89,7 @@ function Search() {
           type="text"
           placeholder="Search account and videos"
           spellCheck="false"
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleChange}
           onFocus={() => setShowResult(true)}
         />
         {!!searchValue &&
@@ -89,7 +99,7 @@ function Search() {
             </button>
           )}
         {loading && <FontAwesomeIcon icon={faSpinner} className={cx('loading')} />}
-        <button className={cx('search-btn')}>
+        <button className={cx('search-btn')} onMouseDown={e=> e.preventDefault()}>
           <SearchIcon /> {/* Icon Search */}
         </button>
       </div>
