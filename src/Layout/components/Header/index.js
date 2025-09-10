@@ -14,7 +14,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import routesConfig from '~/config/routes'
+import config from '~/config'
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -24,6 +24,7 @@ import Image from '~/components/Image'
 import Search from '~/components/Search'
 // import 'tippy.js/dist/tippy.css'; // optional
 const cx = classNames.bind(styles); // sd bind sẽ đặt được tên class như này: post-item
+
 
 const MENU_ITEMS = [
   {
@@ -223,7 +224,7 @@ function Header() {
         {/*inner: tức là bênt trong  */}
         {/* Logo */}
         <div className={cx('logo')}>
-          <Link to={routesConfig.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok lỏ" /></Link>
+          <Link to={config.routes.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok lỏ" /></Link>
         </div>
 
 

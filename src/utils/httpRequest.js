@@ -6,8 +6,12 @@
 // utils = tầng kỹ thuật (cách gửi request). - Thằng utils này chỉ có https://tiktok.fullstack.edu.vn/api/
 // apiServices = tầng business (gọi API nào, lấy dữ liệu gì).- Còn thằng này sẽ xly api/users/search?q=sontung&type=less
 import axios from "axios";
+
+console.log(process.env.REACT_APP_BASE_URL)
+
+
 const request = axios.create({
-    baseURL: 'https://tiktok.fullstack.edu.vn/api/'
+    baseURL: process.env.REACT_APP_BASE_URL // https://tiktok.fullstack.edu.vn/api/
 })
 
 // Taoh hàm get luôn trả về một Promise
