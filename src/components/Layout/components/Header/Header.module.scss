@@ -4,11 +4,17 @@
   --search-top-spacer: 9px;
   --search-button-width: 52px;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+
   width: 100%;
   height: var(--default-layout-header-height, 60); // Không khai báo biến mặc định lấy 60
   box-shadow: 0 1px 1px rgb(0 0 0 / 12%);
-  display: flex;
-  justify-content: center;
+  background-color: var(--white);
 }
 
 .inner {
@@ -22,16 +28,15 @@
 
 .logo {
 }
-.logo-link{
+.logo-link {
   display: flex;
 }
-
 
 .actions {
 }
 
 .custom-login {
-  color: red,
+  color: red;
 }
 
 .action {
@@ -46,11 +51,11 @@
 }
 
 .more-btn {
-    font-size: 2rem;
-    margin-left: 28px;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 4px 12px;
+  font-size: 2rem;
+  margin-left: 28px;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 4px 12px;
 }
 
 .user-avatar {

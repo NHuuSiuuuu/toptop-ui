@@ -10,6 +10,16 @@
 .menu-popper {
     padding-bottom: 8px;
 }
+
+
+.menu-body {
+    overflow-y: auto;
+}
+
+
+
+
+
 // Menu item
 
 .menu-item {
@@ -32,7 +42,8 @@
 // Header
 .header {
     position: relative;
-    height: 50px;
+    height: 50px; //flex-shrink: 0; đảm bảo header sẽ không bị co chiều ngang/chiều cao khi bố trí trong flex container, luôn giữ đúng height: 50px;.
+    flex-shrink: 0;
     margin-top: -8px;
 
 }

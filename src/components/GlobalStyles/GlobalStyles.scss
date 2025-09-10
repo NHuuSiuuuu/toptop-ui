@@ -32,6 +32,33 @@ body {
   text-rendering: optimizeLegibility; //Hiển thị chữ mượt hơn, nhất là với font chữ đẹp như Google Fonts.
 }
 
+// Scroll bar CSS
+html ::-webkit-scrollbar {
+  border-radius: 0px;
+  width: 8px;
+}
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+html ::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 button,
 input,
 [tabindex] {
