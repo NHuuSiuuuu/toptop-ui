@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
@@ -49,7 +50,7 @@ function Button({
   }
 
   const classes = cx('wrapper', {
-    [className] : className, // Khi có className nó sẽ lấy giá trị [className] làm key ở đây 
+    [className]: className, // Khi có className nó sẽ lấy giá trị [className] làm key ở đây
     primary, // biết tắt của primary: primary - Chỉ được thêm khi prop primary là truthy
     outline,
     small,
@@ -63,9 +64,41 @@ function Button({
       {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
       <span className={cx('title')}>{children}</span>
       {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
-
     </Comp>
   );
 }
+
+Button.prototype = {
+  to: PropTypes.string,
+  href: PropTypes.string,
+  primary: PropTypes.bool,
+  outline: PropTypes.bool,
+  text: PropTypes.bool,
+  disabled: PropTypes.bool,
+  rounded: PropTypes.bool,
+  small: PropTypes.bool,
+  large: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node,
+  onClick: PropTypes.func,
+};
+
+// Ví dụ:
+
+// Button.propTypes = {
+//   children: PropTypes.node.isRequired, // node: bất kỳ thứ gì React có thể render được: string, number, element, arr
+// };
+
+/* 
+<Button>Click me</Button>          // children là string
+
+<Button><strong>Click</strong></Button> // children là React element
+
+<Button>{123}</Button>             // children là number
+
+<Button>{false}</Button>           // children là boolean (React bỏ qua, không render)
+ */
 
 export default Button;

@@ -2,8 +2,8 @@ import { forwardRef, useState } from 'react';
 import images from '~/assets/images';
 import styles from './Image.module.scss';
 import classNames from 'classnames';
-
-console.log('Anhe', images.noImage);
+import PropTypes from 'prop-types';
+// console.log('Anhe', images.noImage);
 
 // Khi mà ko chuyền fallBack từ ngoài vào(Header/index.js) thì nó sẽ lấy images.noImage | và nếu chuyền fallback từ ngoài vào thì images.noImage sẽ không được sử dụng nữa
 const Image = forwardRef(({ src, alt, className, fallBack: customFallBack = images.noImage, ...props }, ref) => {
@@ -25,5 +25,12 @@ const Image = forwardRef(({ src, alt, className, fallBack: customFallBack = imag
     />
   );
 });
+
+Image.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  className: PropTypes.string,
+  fallBack: PropTypes.string,
+};
 
 export default Image;

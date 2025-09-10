@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -14,24 +15,23 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import config from '~/config'
+import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
 import { MessageIcon, UploadIcon } from '~/components/Icon';
-import Image from '~/components/Image'
-import Search from '~/components/Search'
+import Image from '~/components/Image';
+import Search from '~/components/Search';
 // import 'tippy.js/dist/tippy.css'; // optional
 const cx = classNames.bind(styles); // sd bind sẽ đặt được tên class như này: post-item
-
 
 const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
     children: {
-      title: 'Language',
+      title: 'Messi Bucu Ronaldo',
       data: [
         {
           type: 'language',
@@ -43,7 +43,7 @@ const MENU_ITEMS = [
           code: 'vi',
           title: 'Tiếng Việt',
         },
-                {
+        {
           type: 'language',
           code: 'en',
           title: 'English',
@@ -53,7 +53,7 @@ const MENU_ITEMS = [
           code: 'vi',
           title: 'Tiếng Việt',
         },
-                {
+        {
           type: 'language',
           code: 'en',
           title: 'English',
@@ -63,7 +63,7 @@ const MENU_ITEMS = [
           code: 'vi',
           title: 'Tiếng Việt',
         },
-                {
+        {
           type: 'language',
           code: 'en',
           title: 'English',
@@ -72,97 +72,7 @@ const MENU_ITEMS = [
           type: 'language',
           code: 'vi',
           title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },        {
-          type: 'language',
-          code: 'en',
-          title: 'English',
-        },
-        {
-          type: 'language',
-          code: 'vi',
-          title: 'Tiếng Việt',
-        },
+        }
       ],
     },
   },
@@ -178,7 +88,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-
   const currentUser = 1;
 
   // Handle Logic
@@ -203,19 +112,18 @@ function Header() {
       to: '/settings',
     },
     ...MENU_ITEMS,
-        {
+    {
       icon: <FontAwesomeIcon icon={faGear} />,
       title: 'Settings',
       to: '/settings',
-    },    {
+    },
+    {
       icon: <FontAwesomeIcon icon={faSignOut} />,
       title: 'Log out',
       to: '/logout',
       separate: true, // Có cái này nó sẽ có cái vạch
     },
   ];
-
-
 
   return (
     <header className={cx('wrapper')}>
@@ -224,13 +132,15 @@ function Header() {
         {/*inner: tức là bênt trong  */}
         {/* Logo */}
         <div className={cx('logo')}>
-          <Link to={config.routes.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok lỏ" /></Link>
+          <Link to={config.routes.home} className={cx('logo-link')}>
+            <img src={images.logo} alt="Tiktok lỏ" />
+          </Link>
         </div>
 
 
         {/* Search */}
-        <Search/>
-      
+        <Search />
+
         <div className={cx('actions')}>
           {currentUser ? (
             <>
@@ -241,7 +151,7 @@ function Header() {
               </Tippy>
 
               <button className={cx('action-btn')}>
-                <MessageIcon/>
+                <MessageIcon />
               </button>
             </>
           ) : (
@@ -258,7 +168,6 @@ function Header() {
                 src="1https://p9-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/0419dc5e1ff00281ac160b654b49f104~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=74100b14&x-expires=1757404800&x-signature=oq6Wzns%2F0rj8cLP8Ev7P8%2F6oCWs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
                 alt="Ronaldo"
                 // fallBack="https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/482235808_2177386846052698_6216436897432676126_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE0op-mLa779lVE9wwex9HKWUAN9RPg6DJZQA31E-DoMhVTOzHEXLAufdS1tkTxsC87D4RhNlfmtBPkKDmlMCjS&_nc_ohc=UTe9smFc85AQ7kNvwH2b6X2&_nc_oc=Admzu6t6oOrrElj3zqCmWp0TtL-qhZDL7u533FQoyLe1FFF9rhlHTvXfAZLwCDe3JFo&_nc_zt=23&_nc_ht=scontent.fhan3-2.fna&_nc_gid=UkEaDKN8Kn7zSFbqEBfN9w&oh=00_Afbi5gkMOok8kpfNdUeNtR7JEIq38jRV9YJHf3QqO55JnQ&oe=68C3753E"
-
               />
             ) : (
               <button className={cx('more-btn')}>
