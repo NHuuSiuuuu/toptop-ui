@@ -18,12 +18,12 @@ function Search() {
   const [showResult, setShowResult] = useState(true); // quản lý ấn/hiện kết quả
   const [loading, setLoading] = useState(false);
 
-  const debounced = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   const inputRef = useRef(); // tạo ref truy cập trực tiếp vào input
   useEffect(() => {
     // Nếu ô tìm kiếm trống thì không cần fetch dữ liệu
-    if (!debounced.trim()) {
+    if (!debouncedValue.trim()) {
       // loại bỏ khoảng trắng ở đầu và cuối chuỗi
       setSearchResult([]);
       return; // Nếu searchValue rỗng thì thoát hàm k thực hiện phần fetch(...), không gọi API
@@ -33,14 +33,14 @@ function Search() {
       // Trước khi gọi API xét nó là true
       setLoading(true);
 
-      const result = await searchServices.search(debounced);
+      const result = await searchServices.search(debouncedValue);
       setSearchResult(result);
 
       setLoading(false);
     };
 
     fetchApi();
-  }, [debounced]);
+  }, [debouncedValue]);
 
   // Hàm xóa nội dung trong input
   const handleClear = () => {

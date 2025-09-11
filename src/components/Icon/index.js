@@ -1,3 +1,3 @@
-export { UploadIcon,MessageIcon,SearchIcon  } from './Icon'
+// export { UploadIcon,MessageIcon,SearchIcon  } from './Icon'00
 // Hoặc 
-// export  *  from './Icon';
+export  *  from './Icon';

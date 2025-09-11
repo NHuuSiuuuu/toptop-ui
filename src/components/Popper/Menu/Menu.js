@@ -36,6 +36,16 @@ function Menu({ children, items = [] }, hideOnClick = false, onChange = defaultF
     });
   };
 
+  // xử lý reset về trang đầu tiên
+  const handleResetMenu = () => {
+    setHistory((prev) => prev.slice(0, 1));
+  };
+
+  //
+  const handleBack = () => {
+    setHistory((prev) => prev.slice(0, prev.length - 1)); // xóa bỏ đi phần tử cuối cùng trong mảng
+  };
+
   return (
     <Tippy
       // visible
@@ -47,19 +57,12 @@ function Menu({ children, items = [] }, hideOnClick = false, onChange = defaultF
       render={(attrs) => (
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
           <WrapperPopper className={cx('menu-popper')}>
-            {history.length > 1 && (
-              <Header
-                title={current.title}
-                onBack={() => {
-                  setHistory((prev) => prev.slice(0, prev.length - 1)); // xóa bỏ đi phần tử cuối cùng trong mảng
-                }}
-              />
-            )}
+            {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
             <div className={cx('menu-body')}>{renderItems()}</div>
           </WrapperPopper>
         </div>
       )}
-      onHide={() => setHistory((prev) => prev.slice(0, 1))} // xử lý về menu trang 1 khi bỏ hover vào 3 chấm
+      onHide={handleResetMenu} // xử lý reset về trang đầu tiên,  về menu trang 1 khi bỏ hover vào 3 chấm
     >
       {children}
     </Tippy>
