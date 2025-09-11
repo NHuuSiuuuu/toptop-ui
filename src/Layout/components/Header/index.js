@@ -72,7 +72,7 @@ const MENU_ITEMS = [
           type: 'language',
           code: 'vi',
           title: 'Tiếng Việt',
-        }
+        },
       ],
     },
   },
@@ -89,6 +89,7 @@ const MENU_ITEMS = [
 
 function Header() {
   const currentUser = 1;
+
 
   // Handle Logic
   const handleMenuChange = (menuItem) => {
@@ -137,22 +138,22 @@ function Header() {
           </Link>
         </div>
 
-
         {/* Search */}
         <Search />
 
         <div className={cx('actions')}>
-          {currentUser ? (
+          {currentUser  ? (
             <>
               <Tippy content="Upload video" delay={[0, 200]}>
                 <button className={cx('action-btn')}>
                   <UploadIcon />
                 </button>
               </Tippy>
-
-              <button className={cx('action-btn')}>
-                <MessageIcon />
-              </button>
+              <Tippy content="Message" delay={[0, 200]}>
+                <button className={cx('action-btn')}>
+                  <MessageIcon />
+                </button>
+              </Tippy>
             </>
           ) : (
             <>

@@ -5,8 +5,6 @@
 // utils = tầng kỹ thuật (cách gửi request). - Thằng utils này chỉ có https://tiktok.fullstack.edu.vn/api/
 // apiServices = tầng business (gọi API nào, lấy dữ liệu gì).- Còn thằng này sẽ xly api/users/search?q=sontung&type=less
 
-
-
 import * as request from '~/utils/httpRequest';
 
 export const search = async (q, type = 'less') => {
@@ -20,6 +18,6 @@ export const search = async (q, type = 'less') => {
     });
     return res.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
